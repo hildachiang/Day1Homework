@@ -1,0 +1,27 @@
+﻿@model List<Day1Homework.ViewModel.AccountBookModel>
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+            </tr>
+            @{int i = 0; }
+            @foreach (var md in Model)
+            {
+                <tr>
+                    <td>@(++i)</td>
+                    <td>@md.ClassType</td>
+                    <td>@md.AccountDate</td>
+                    <td>@string.Format("{0,12:N0}", md.BillingAmount)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
