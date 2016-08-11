@@ -1,11 +1,6 @@
-﻿using Day1Homework.Models;
-using Day1Homework.Repositories;
+﻿using Day1Homework.Repositories;
 using Day1Homework.Service;
 using Day1Homework.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Day1Homework.Controllers
@@ -31,13 +26,7 @@ namespace Day1Homework.Controllers
 
         public ActionResult Create()
         {
-            var categoryOptions = new List<SelectListItem>{
-                        new SelectListItem { Text = "請選擇", Value="" },
-                        new SelectListItem { Text = "支出", Value="支出" },
-                        new SelectListItem { Text = "收入", Value="收入" }
-                    };
-
-            return View(new CreateViewModel { CategoryOptions = categoryOptions, AccountBookModel = new AccountBookModel() });
+            return View(new CreateViewModel { AccountBookModel = new AccountBookModel() });
         }
 
         [HttpPost]
