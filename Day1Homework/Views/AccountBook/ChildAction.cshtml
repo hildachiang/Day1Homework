@@ -18,10 +18,9 @@
                     <td>@(++i)</td>
                     <td>@md.ClassType</td>
                     <td>@md.AccountDate</td>
-                    <td>@string.Format("{0,12:N0}", md.BillingAmount)</td>
+                    <td>@string.Format("${0,12:N0}", md.BillingAmount)</td>
                 </tr>
             }
         </table>
     </div>
 </div>
-
