@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Day1Homework.Enum
+namespace Day1Homework.MyEnum
 {
     public enum CategoryEnum
     {

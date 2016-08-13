@@ -1,4 +1,4 @@
-﻿using Day1Homework.Enum;
+﻿using Day1Homework.MyEnum;
 namespace Day1Homework.ViewModel
 {
    public class CreateViewModel
