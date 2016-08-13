@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel.DataAnnotations;
+
 using Day1Homework.Models;
 using Day1Homework.Repositories;
 using Day1Homework.ViewModel;
-using Day1Homework.Enum;
-
+using Day1Homework.MyEnum;
+using Day1Homework.Helper;
 namespace Day1Homework.Service
 {
     public class AccountBookService : Repository<AccountBook>
@@ -20,23 +20,19 @@ namespace Day1Homework.Service
 
         public IEnumerable<AccountBookModel> Lookup()
         {
+            CategoryEnum myEnum;
             var source = _accountRep.LookupAll();
             return source.AsEnumerable().Select(d => new AccountBookModel()
             {
                 AccountDate = d.Dateee.ToString("yyyy-MM-dd"),
                 BillingAmount = d.Amounttt,
-                ClassType = GetDisplayName((CategoryEnum)d.Categoryyy),
+                ClassType = Enum.TryParse(d.Categoryyy.ToString(), out myEnum) ? myEnum.GetDisplayName() : "",
                 Note = d.Remarkkk
             }
             ).ToList();
 
         }
-        public string GetDisplayName(CategoryEnum value)
-        {
-            var member = (value.GetType().GetMember(value.ToString()))[0];
-            var attribute = (DisplayAttribute)(member.GetCustomAttributes(typeof(DisplayAttribute), false))[0];
-            return attribute.GetName();
-        }
+
 
         public void Add(AccountBookModel accountBook)
         {
