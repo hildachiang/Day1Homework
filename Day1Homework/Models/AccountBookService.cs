@@ -22,27 +22,33 @@ namespace Day1Homework.Service
         {
             CategoryEnum myEnum;
             var source = _accountRep.LookupAll();
-            return source.AsEnumerable().Select(d => new AccountBookModel()
+            return source.OrderByDescending(d => d.Dateee).AsEnumerable().Select(d => new AccountBookModel()
             {
                 AccountDate = d.Dateee.ToString("yyyy-MM-dd"),
                 BillingAmount = d.Amounttt,
                 ClassType = Enum.TryParse(d.Categoryyy.ToString(), out myEnum) ? myEnum.GetDisplayName() : "",
                 Note = d.Remarkkk
-            }
-            ).ToList();
-
+            }).ToList();
         }
-
 
         public void Add(AccountBookModel accountBook)
         {
             Add(new AccountBook()
             {
-                Amounttt = (Int32)accountBook.BillingAmount,
-                Categoryyy = Int32.Parse(accountBook.ClassType),
+                Amounttt = (int)accountBook.BillingAmount,
+                Categoryyy = (int)GetEnumValue(accountBook.ClassType),
                 Dateee = DateTime.Parse(accountBook.AccountDate),
                 Remarkkk = accountBook.Note
             });
+        }
+
+        private CategoryEnum GetEnumValue(string category)
+        {
+            CategoryEnum myEnum;
+            if (Enum.TryParse(category, out myEnum))
+                return myEnum;
+            else
+                throw new Exception("未預期的enum值");
         }
 
         public void Add(AccountBook accountBook)

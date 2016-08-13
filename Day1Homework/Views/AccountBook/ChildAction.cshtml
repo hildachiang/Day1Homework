@@ -1,6 +1,7 @@
-﻿@model List<Day1Homework.ViewModel.AccountBookModel>
-@using Day1Homework.MyEnum;
+﻿@using Day1Homework.MyEnum;
 @using Day1Homework.Helper;
+@using Day1Homework.ViewModel;
+@model IEnumerable<AccountBookModel>
 @{
     Layout = null;
 }
@@ -29,12 +30,12 @@
 
 @helper ChangeShowColor(string category, double amount)
 {
-if (category == CategoryEnum.Income.GetDisplayName())
-{
+    if (category == CategoryEnum.Income.GetDisplayName())
+    {
         <font color="blue">@string.Format("${0,12:N0}", amount)</font>
-}
-else
-{
+    }
+    else
+    {
         <font color="red">@string.Format("${0,12:N0}", amount)</font>
-        }
-        }
+    }
+}

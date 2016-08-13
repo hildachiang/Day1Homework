@@ -1,4 +1,4 @@
-﻿using Day1Homework.Enum;
+﻿using Day1Homework.MyEnum;
 using Day1Homework.Repositories;
 using Day1Homework.Service;
 using Day1Homework.ViewModel;
@@ -23,7 +23,8 @@ namespace Day1Homework.Controllers
         }
         public ActionResult ChildAction()
         {
-            return View(_accountBookSvc.Lookup());
+            var result = _accountBookSvc.Lookup();
+            return View(result);
         }
 
         public ActionResult Create()
@@ -33,19 +34,17 @@ namespace Day1Homework.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateViewModel model)
+        public ActionResult AjaxPost(CreateViewModel model)
         {
-            //新增仍有問題，抓不到enum塞的dropdownlist
             if (ModelState.IsValid)
-            {                
+            {
+                model.AccountBookModel.ClassType = model.CategoryOptions.ToString();
                 _accountBookSvc.Add(model.AccountBookModel);
                 _accountBookSvc.Save();
-
-                return RedirectToAction("Index");
+                return RedirectToAction("ChildAction");
             }
-            return View(model);
+            return View("ChildAction");
         }
-
     }
 
 }
