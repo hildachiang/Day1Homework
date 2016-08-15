@@ -43,7 +43,7 @@ namespace Day1Homework.Controllers
                 _accountBookSvc.Save();
                 return RedirectToAction("ChildAction");
             }
-            return View("ChildAction");
+            return View();
         }
     }
 

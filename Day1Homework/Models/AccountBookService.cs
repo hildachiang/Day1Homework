@@ -26,7 +26,7 @@ namespace Day1Homework.Service
             {
                 AccountDate = d.Dateee.ToString("yyyy-MM-dd"),
                 BillingAmount = d.Amounttt,
-                ClassType = Enum.TryParse(d.Categoryyy.ToString(), out myEnum) ? myEnum.GetDisplayName() : "",
+                ClassType = Enum.TryParse(d.Categoryyy.ToString(), out myEnum) ? myEnum.GetDisplayName() : "N/A",
                 Note = d.Remarkkk
             }).ToList();
         }

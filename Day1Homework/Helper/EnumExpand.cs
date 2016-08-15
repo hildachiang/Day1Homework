@@ -1,8 +1,5 @@
 ﻿using Day1Homework.MyEnum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 namespace Day1Homework.Helper
 {
@@ -17,9 +14,8 @@ namespace Day1Homework.Helper
 
         public static string GetDisplayName(this CategoryEnum myEnum, int category)
         {
-            string value = category.ToString();
             CategoryEnum myCategoryEnum;
-            if (Enum.TryParse(value, true, out myCategoryEnum))
+            if (Enum.TryParse(category.ToString(), true, out myCategoryEnum))
             {
                 return GetDisplayName(myCategoryEnum);
             }
