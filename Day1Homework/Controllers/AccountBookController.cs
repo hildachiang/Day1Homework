@@ -21,7 +21,7 @@ namespace Day1Homework.Controllers
         {
             return View();
         }
-        public ActionResult ChildAction()
+        public ActionResult ResultList()
         {
             var result = _accountBookSvc.Lookup();
             return View(result);
@@ -39,9 +39,11 @@ namespace Day1Homework.Controllers
             if (ModelState.IsValid)
             {
                 model.AccountBookModel.ClassType = model.CategoryOptions.ToString();
+                //fix null存檔會出錯
+                model.AccountBookModel.Note = model.AccountBookModel.Note ?? string.Empty;
                 _accountBookSvc.Add(model.AccountBookModel);
                 _accountBookSvc.Save();
-                return RedirectToAction("ChildAction");
+                return RedirectToAction("ResultList");
             }
             return View();
         }
