@@ -27,3 +27,18 @@ jQuery.validator.unobtrusive.adapters.add(
         options.messages['dayrange'] = options.message;
     }
 );
+
+jQuery.validator.addMethod('extmaxlength', function (value, element, params) {
+    var remaining = (100 - (parseInt($(element).val().replace(/(\r\n|\n|\r)/gm, '').length, 10)));
+    if (remaining < 0) {
+        return false;
+    }
+    return true;
+});
+jQuery.validator.unobtrusive.adapters.add(
+    'extmaxlength', [],
+    function (options) {
+        options.rules["extmaxlength"] = true;
+        options.messages['extmaxlength'] = options.message;
+    }
+);

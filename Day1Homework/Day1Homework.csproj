@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountBookController.cs" />
+    <Compile Include="Filters\ExtMaxLengthAttribute.cs" />
     <Compile Include="Filters\DayRangeAttribute.cs" />
     <Compile Include="Helper\EnumExpand.cs" />
     <Compile Include="MyEnum\CategoryEnum.cs" />

@@ -33,6 +33,7 @@
         <div class="form-group">
             <label for="date" class="col-sm-2 control-label">備註</label>  <div class="col-md-10">
                 @Html.TextAreaFor(model => model.AccountBookModel.Note, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AccountBookModel.Note, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

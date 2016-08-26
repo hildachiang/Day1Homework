@@ -19,6 +19,7 @@ namespace Day1Homework.ViewModel
         [Range(0, double.MaxValue, ErrorMessage = "「金額」只能輸入正整數")]
         public double BillingAmount{ get; set; }
         [Required]
+        [ExtMaxLength(100, ErrorMessage = "最多輸入100個字元")]
         public string Note{ get; set; }
     }
 }
