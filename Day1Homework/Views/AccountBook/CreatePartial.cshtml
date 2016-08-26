@@ -1,13 +1,7 @@
 ﻿@model Day1Homework.ViewModel.CreateViewModel
 
-@{
-    ViewBag.Title = "View";
-    Layout = null;
-}
-
 @using (Ajax.BeginForm(new AjaxOptions
 {
-    UpdateTargetId = "ajax",
     Confirm = "確認新增?",
     LoadingElementId = "loading",
     LoadingElementDuration = 2000,
@@ -48,19 +42,3 @@
         </div>
     </div>
 }
-<script type="text/javascript">
-    jQuery.validator.addMethod('dayrange', function (value, element, param) {
-        if (!value) return false;
-        var valueDateParts = value.split('-');
-        var now = new Date();
-        var dateValue = new Date(valueDateParts[2],
-                            (valueDateParts[1] - 1),
-                             valueDateParts[0],
-                             now.getHours(),
-                             now.getMinutes(),
-                             (now.getSeconds() + 5));
-
-        return dateValue < now;
-    });
-     jQuery.validator.unobtrusive.adapters.addMinMax('dayrange', 'dayrange');
-</script>
