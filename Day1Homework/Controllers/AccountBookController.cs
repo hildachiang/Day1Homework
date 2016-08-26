@@ -27,7 +27,7 @@ namespace Day1Homework.Controllers
             return View(result);
         }
 
-        public ActionResult Create()
+        public ActionResult CreatePartial()
         {
             return View();
         }
@@ -45,7 +45,7 @@ namespace Day1Homework.Controllers
                 _accountBookSvc.Save();
                 return RedirectToAction("ResultList");
             }
-            return View();
+            return PartialView("CreatePartial", model);
         }
     }
 
