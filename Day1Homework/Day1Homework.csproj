@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountBookController.cs" />
+    <Compile Include="Filters\DayRangeAttribute.cs" />
     <Compile Include="Helper\EnumExpand.cs" />
     <Compile Include="MyEnum\CategoryEnum.cs" />
     <Compile Include="Models\AccountBook.cs">
@@ -214,6 +215,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\accountbook.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -256,7 +258,7 @@
     <Content Include="Views\Home\ChildAction.cshtml" />
     <Content Include="Views\AccountBook\Index.cshtml" />
     <Content Include="Views\AccountBook\ResultList.cshtml" />
-    <Content Include="Views\AccountBook\Create.cshtml" />
+    <Content Include="Views\AccountBook\CreatePartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
